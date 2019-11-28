@@ -1,0 +1,18 @@
+<section class="flex">
+    <mat-card class="card_editor">
+        <mat-card-header>
+            <mat-card-title>Markdown</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <textarea [(ngModel)]="textData"></textarea>
+          </mat-card-content>
+    </mat-card>
+    <mat-card class="card_editor">
+        <mat-card-header>
+            <mat-card-title>Preview</mat-card-title>
+          </mat-card-header>
+          <mat-card-content id="markdownPreview">
+            <ngx-md id="md-preview" [data]="textData"></ngx-md>
+          </mat-card-content>
+    </mat-card>    
+</section>
