@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: string;
   }
   constructor(private router: Router,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private storageService: StorageService) {
       this.login = {
         username: '',
         password: ''
@@ -29,6 +31,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.signin(this.login).subscribe(
       _res => {
         console.log(_res);
+        this.storageService.setUserId(_res.userId);
         this.router.navigateByUrl('dashboard/editor');
       },
       _err => {

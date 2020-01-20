@@ -2,6 +2,9 @@
     width: 50%;
     height: 80vh;
 }
+mat-card-header{
+    min-height: 65px;
+}
 textarea{
     width: 96%;
     height: 98%;
@@ -10,5 +13,10 @@ textarea{
 mat-card-content{
     height: 95%;
     overflow-y: auto;
-
+}
+section{
+    height: 92vh;
+}
+#fileNameInput{
+    width: 300px;
 }

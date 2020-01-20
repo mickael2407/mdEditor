@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 declare interface AuthResponse {
   code: number;
   msg: string;
+  userId: string;
 }
 
 

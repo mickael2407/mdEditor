@@ -1,18 +1,24 @@
 <section class="flex">
-    <mat-card class="card_editor">
-        <mat-card-header>
-            <mat-card-title>Markdown</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <textarea [(ngModel)]="textData"></textarea>
-          </mat-card-content>
-    </mat-card>
-    <mat-card class="card_editor">
-        <mat-card-header>
-            <mat-card-title>Preview</mat-card-title>
-          </mat-card-header>
-          <mat-card-content id="markdownPreview">
-            <ngx-md id="md-preview" [data]="textData"></ngx-md>
-          </mat-card-content>
-    </mat-card>    
+  <mat-card class="card_editor">
+    <mat-card-header>
+      <!--       <mat-card-title>Markdown</mat-card-title>
+ -->
+      <mat-form-field id="fileNameInput">
+        <input matInput [(ngModel)]="newDoc.title" placeholder="Name" value="">
+      </mat-form-field>
+    </mat-card-header>
+    <mat-card-content>
+      <textarea [(ngModel)]="newDoc.content"></textarea>
+    </mat-card-content>
+    <button mat-raised-button (click)="saveFile()" color="primary">Save</button>
+
+  </mat-card>
+  <mat-card class="card_editor">
+    <mat-card-header>
+      <mat-card-title>Preview</mat-card-title>
+    </mat-card-header>
+    <mat-card-content id="markdownPreview">
+      <ngx-md id="md-preview" [data]="newDoc.content"></ngx-md>
+    </mat-card-content>
+  </mat-card>
 </section>

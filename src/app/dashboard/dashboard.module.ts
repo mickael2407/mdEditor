@@ -7,6 +7,8 @@ import { EditorComponent } from './editor/editor.component';
 import { NgxMdModule } from 'ngx-md';
 import { MaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DocsService } from '../service/docs.service';
+import { CatService } from '../service/cat.service';
 
 
 @NgModule({
@@ -18,6 +20,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NgxMdModule.forRoot(),
     DashboardRoutingModule
+  ],
+  providers: [
+    DocsService,
+    CatService
   ]
 })
 export class DashboardModule { }
