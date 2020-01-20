@@ -4,11 +4,11 @@
       <!--       <mat-card-title>Markdown</mat-card-title>
  -->
       <mat-form-field id="fileNameInput">
-        <input matInput [(ngModel)]="newDoc.title" placeholder="Name" value="">
+        <input matInput [(ngModel)]="currentDoc.title" placeholder="Name" value="">
       </mat-form-field>
     </mat-card-header>
     <mat-card-content>
-      <textarea [(ngModel)]="newDoc.content"></textarea>
+      <textarea [(ngModel)]="currentDoc.content"></textarea>
     </mat-card-content>
     <button mat-raised-button (click)="saveFile()" color="primary">Save</button>
 
@@ -18,7 +18,7 @@
       <mat-card-title>Preview</mat-card-title>
     </mat-card-header>
     <mat-card-content id="markdownPreview">
-      <ngx-md id="md-preview" [data]="newDoc.content"></ngx-md>
+      <ngx-md id="md-preview" [data]="currentDoc.content"></ngx-md>
     </mat-card-content>
   </mat-card>
 </section>

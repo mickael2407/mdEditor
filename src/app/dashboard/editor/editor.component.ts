@@ -10,10 +10,10 @@ import { DocsService } from 'src/app/service/docs.service';
 })
 export class EditorComponent implements OnInit {
 
-  public newDoc: Doc;
+  public currentDoc: Doc;
   constructor(private storageService: StorageService, 
     private docService: DocsService) {
-    this.newDoc = {
+    this.currentDoc = {
       _id: null,
       title: `undefined${new Date().getTime()}`,
       description: '',
@@ -29,14 +29,23 @@ export class EditorComponent implements OnInit {
   }
 
   saveFile(): void {
-    this.newDoc.modified = new Date();
-    this.docService.postDocs(this.newDoc).subscribe(
+    this.currentDoc.modified = new Date();
+    this.docService.postDocs(this.currentDoc).subscribe(
       _res => {
         console.log(_res);
-        this.newDoc._id = _res.docId;
+        this.currentDoc._id = _res.docId;
         
       }
     );
+  }
+
+  loadContent(docId: string) {
+    this.docService.getContentByDocId(docId).subscribe(
+      _res => {
+        console.log(_res);
+        this.currentDoc.content = _res.content;
+      }
+    )
   }
 
 }

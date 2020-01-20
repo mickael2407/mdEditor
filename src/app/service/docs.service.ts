@@ -22,4 +22,8 @@ export class DocsService {
     return this.httpClient.post<any>(API.URL + API.DOC.NEW, doc);
   }
 
+  getContentByDocId(docId: string): Observable<{content: string}> {
+    return this.httpClient.get<{content: string}>(API.URL + `${API.DOC.CONTENT}${docId}`);
+  }
+
 }
