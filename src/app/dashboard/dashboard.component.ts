@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   constructor(private storageService: StorageService,
-    private docService: DocsService,
-    private catService: CatService,
+    public docService: DocsService,
+    public catService: CatService,
     private router: Router) { }
 
   ngOnInit() {
