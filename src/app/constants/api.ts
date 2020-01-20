@@ -7,5 +7,8 @@ export const API = {
     "DOC": {
         "USER": 'docs/user/',
         "NEW": 'docs/new'
+    },
+    "CAT": {
+        "GET_ALL": 'cat/all'
     }
 }

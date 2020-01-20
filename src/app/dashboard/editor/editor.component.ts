@@ -11,7 +11,8 @@ import { DocsService } from 'src/app/service/docs.service';
 export class EditorComponent implements OnInit {
 
   public newDoc: Doc;
-  constructor(private storageService: StorageService, private docService: DocsService) {
+  constructor(private storageService: StorageService, 
+    private docService: DocsService) {
     this.newDoc = {
       _id: null,
       title: `undefined${new Date().getTime()}`,
