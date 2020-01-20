@@ -20,7 +20,10 @@
       </button> -->
 
       <mat-list role="fileList">
-
+        <mat-list-item (click)="navigate('dashboard/editor')" matRipple role="newFile">
+            <mat-icon mat-list-icon>add</mat-icon>
+            <h4 mat-line>New File</h4>
+        </mat-list-item>
         <mat-list-item matRipple *ngFor = "let file of docService.docs" (click)="selectFile(file._id)" role="fileItem">
             <mat-icon mat-list-icon>insert_drive_file</mat-icon>
             <h4 mat-line>{{ file.title }}</h4>
@@ -30,7 +33,7 @@
     </mat-drawer>
   
     <div class="example-sidenav-content">
-        <router-outlet (activate)="onChangePage($event)"></router-outlet>
+        <router-outlet></router-outlet>
     </div>
   
   </mat-drawer-container>

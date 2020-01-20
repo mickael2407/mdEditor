@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Doc } from 'src/app/interface/doc';
 import { StorageService } from 'src/app/service/storage.service';
 import { DocsService } from 'src/app/service/docs.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-editor',
@@ -12,6 +13,7 @@ export class EditorComponent implements OnInit {
 
   public currentDoc: Doc;
   constructor(private storageService: StorageService, 
+    private routerSnapshot: ActivatedRoute,
     private docService: DocsService) {
     this.currentDoc = {
       _id: null,
@@ -23,6 +25,15 @@ export class EditorComponent implements OnInit {
       userId: this.storageService.getUserId(),
       idCat : '1'
     };
+    this.routerSnapshot.params.subscribe(
+      _params => {
+        if (_params['docId'] !== undefined) {
+          this.currentDoc = this.docService.docs.filter(_doc => _doc._id == _params['docId'])[0];
+          console.log(this.docService.docs);
+          this.loadContent(_params['docId']);
+        }
+      }
+    );  
   }
 
   ngOnInit() {
@@ -34,7 +45,9 @@ export class EditorComponent implements OnInit {
       _res => {
         console.log(_res);
         this.currentDoc._id = _res.docId;
-        
+        if (this.docService.docs.filter(_doc => _doc._id == this.currentDoc._id).length < 0) {
+          this.docService.docs.push(this.currentDoc);
+        }
       }
     );
   }

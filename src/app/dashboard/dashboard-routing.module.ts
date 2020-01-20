@@ -6,7 +6,8 @@ import { EditorComponent } from './editor/editor.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
-    { path: 'editor', component: EditorComponent }
+    { path: 'editor', component: EditorComponent },
+    { path: 'editor/:docId', component: EditorComponent }
   ]}
 ];
 

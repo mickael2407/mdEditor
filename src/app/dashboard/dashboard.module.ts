@@ -9,6 +9,7 @@ import { MaterialModule } from '../material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocsService } from '../service/docs.service';
 import { CatService } from '../service/cat.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CatService } from '../service/cat.service';
     CommonModule,
     MaterialModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     NgxMdModule.forRoot(),
     DashboardRoutingModule

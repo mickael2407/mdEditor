@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './service/auth.service';
+import { RouterModule, ActivatedRouteSnapshot } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,14 @@ import { AuthService } from './service/auth.service';
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule
   ],
   providers: [
-    AuthService
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

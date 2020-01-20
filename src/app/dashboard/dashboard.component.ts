@@ -4,6 +4,7 @@ import { DocsService } from '../service/docs.service';
 import { StorageService } from '../service/storage.service';
 import { Doc } from '../interface/doc';
 import { EditorComponent } from './editor/editor.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,10 +13,10 @@ import { EditorComponent } from './editor/editor.component';
 })
 export class DashboardComponent implements OnInit {
 
-  private editorComponent: EditorComponent;
   constructor(private storageService: StorageService,
     private docService: DocsService,
-    private catService: CatService) { }
+    private catService: CatService,
+    private router: Router) { }
 
   ngOnInit() {
     this.catService.getAllCategory().subscribe(
@@ -27,9 +28,6 @@ export class DashboardComponent implements OnInit {
       _res => {
         console.log(_res);
         this.docService.docs = _res;
-        this.catService.category.forEach(_cat => {
-        }
-        );
       }
     );
   }
@@ -38,19 +36,14 @@ export class DashboardComponent implements OnInit {
     return this.docService.docs.length > 0;
   }
 
-  selectFile(docId: string) {
-    console.log(docId);
-    if (this.editorComponent instanceof EditorComponent) {
-      this.editorComponent.currentDoc = this.docService.docs.filter(_doc => _doc._id === docId)[0];
-      this.editorComponent.loadContent(docId);
-    }
+  navigate(path: string): void {
+    this.router.navigateByUrl('dashboard/editor');
   }
 
-  onChangePage(event) {
-    if (event instanceof EditorComponent) {
-      this.editorComponent = event;
-    }
+  selectFile(docId: string): void {
+    this.router.navigate(['dashboard/editor', docId]);
   }
+
 
 
 }

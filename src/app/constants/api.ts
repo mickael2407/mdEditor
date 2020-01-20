@@ -1,5 +1,5 @@
 export const API = {
-    "URL": "http://localhost:8080/",
+    "URL": "http://51.77.193.65:8080/",
     "AUTH": {
         "SIGNIN": 'auth/signin',
         "SIGNUp": 'auth/signup'
