@@ -7,5 +7,5 @@ export interface Doc {
     modified: Date;
     created: Date;
     userId: string;
-    idCat: string
+    idCat: string[];
 }

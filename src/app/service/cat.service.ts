@@ -10,7 +10,9 @@ import { Observable } from 'rxjs';
 export class CatService {
 
   public category: Category[];
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.category = [];
+  }
 
 
   getAllCategory(): Observable<Category[]> {

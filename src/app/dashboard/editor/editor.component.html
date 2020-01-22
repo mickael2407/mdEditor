@@ -6,12 +6,41 @@
       <mat-form-field id="fileNameInput">
         <input matInput [(ngModel)]="currentDoc.title" placeholder="Name" value="">
       </mat-form-field>
+      <button mat-button (click)="saveFile()" color="basic">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
     </mat-card-header>
+    <mat-progress-bar aria-label="loading" *ngIf="loadingFile" mode="indeterminate"></mat-progress-bar>
     <mat-card-content>
       <textarea [(ngModel)]="currentDoc.content"></textarea>
     </mat-card-content>
-    <button mat-raised-button (click)="saveFile()" color="primary">Save</button>
-
+    <mat-form-field class="category-list">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip
+          *ngFor="let cat of currentCategory"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(cat)">
+          {{ cat.name }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Category"
+          #catInut
+          [formControl]="catCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let catElt of filteredCategory | async" [value]="catElt.name">
+          {{ catElt.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
   </mat-card>
   <mat-card class="card_editor">
     <mat-card-header>

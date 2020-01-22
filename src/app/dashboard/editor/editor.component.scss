@@ -5,8 +5,11 @@
 mat-card-header{
     min-height: 65px;
 }
+mat-progress-bar{
+    margin: 4px;
+}
 textarea{
-    width: 96%;
+    width: 99%;
     height: 98%;
     overflow: auto;
 }
@@ -19,4 +22,7 @@ section{
 }
 #fileNameInput{
     width: 300px;
+}
+.category-list{
+    width: 100%;
 }
