@@ -26,6 +26,9 @@ export class AuthService {
     return this.httpClient.post<AuthResponse>(API.URL + API.AUTH.SIGNIN, login);
   }
 
+  signup(register: {username: string, password: string}): Observable<AuthResponse> {
+    return this.httpClient.post<AuthResponse>(API.URL + API.AUTH.SIGNUp, register);
+  }
 
   getAuthValue(): boolean {
     return this.isAuth.value;

@@ -1,5 +1,37 @@
 <mat-card class="login-card">
-  <mat-card-header>
+
+  <mat-tab-group>
+    <mat-tab label="Signin">
+      <mat-card-content>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" [(ngModel)]="login.username" type="text" name="username" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="login.password" type="password" name="password"
+              required>
+          </mat-form-field>
+          <button mat-raised-button (click)="signin()" color="primary">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-tab>
+    <mat-tab label="Signup">
+      <mat-card-content>
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <mat-form-field class="example-full-width">
+            <input formControlName="username" matInput placeholder="Username" type="text" name="username" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input #password formControlName="password" matInput placeholder="Password" type="password" name="password" required>
+            <mat-hint align="end">{{password.value?.length || 0}}/6</mat-hint>
+          </mat-form-field>
+          <button mat-raised-button type="submit" [disabled]="signupForm.invalid" color="primary">Signup</button>
+        </form>
+      </mat-card-content>
+    </mat-tab>
+  </mat-tab-group>
+
+  <!--   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
   <mat-card-content>
@@ -11,9 +43,8 @@
         <input matInput placeholder="Password" [(ngModel)]="login.password" type="password" name="password" required>
       </mat-form-field>
     </form>
-<!--     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
- -->  </mat-card-content>
+  </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="signin()" color="primary">Login</button>
-  </mat-card-actions>
+  </mat-card-actions> -->
 </mat-card>
