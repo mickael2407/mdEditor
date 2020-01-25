@@ -5,6 +5,7 @@ import { StorageService } from '../service/storage.service';
 import { Doc } from '../interface/doc';
 import { EditorComponent } from './editor/editor.component';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +16,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private storageService: StorageService,
     public docService: DocsService,
+    private authService: AuthService,
     public catService: CatService,
     private router: Router) { }
 
@@ -42,6 +44,11 @@ export class DashboardComponent implements OnInit {
 
   selectFile(docId: string): void {
     this.router.navigate(['dashboard/editor', docId]);
+  }
+
+  logout(): void {
+    this.storageService.clearStorage();
+    this.authService.isAuth.next(false);
   }
 
 

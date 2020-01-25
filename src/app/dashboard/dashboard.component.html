@@ -2,14 +2,14 @@
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
-    <span>Markdown-Editor</span>
+    <span>E-Doc</span>
     <button mat-button (click)="navigate('./editor')">
         <mat-icon>edit</mat-icon>
         Editor
     </button>
-    <button mat-button>
-        <mat-icon>wifi_tethering</mat-icon>
-        Sensors
+    <button (click)="logout()" id="logoutBtn" mat-button>
+        <mat-icon>logout</mat-icon>
+        Logout
     </button>
 </mat-toolbar>
 <mat-drawer-container class="example-container" autosize>

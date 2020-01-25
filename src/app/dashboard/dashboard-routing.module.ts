@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { EditorComponent } from './editor/editor.component';
+import { AuthGuard } from '../service/auth.guard';
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
-    { path: 'editor', component: EditorComponent },
-    { path: 'editor/:docId', component: EditorComponent }
+    { path: 'editor', canActivate: [AuthGuard], component: EditorComponent },
+    { path: 'editor/:docId', canActivate: [AuthGuard], component: EditorComponent }
   ]}
 ];
 

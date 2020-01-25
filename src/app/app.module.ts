@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './service/auth.service';
 import { RouterModule, ActivatedRouteSnapshot } from '@angular/router';
+import { AuthGuard } from './service/auth.guard';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RouterModule, ActivatedRouteSnapshot } from '@angular/router';
   ],
   providers: [
     AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

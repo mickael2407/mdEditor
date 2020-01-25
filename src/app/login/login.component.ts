@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       _res => {
         console.log(_res);
         this.storageService.setUserId(_res.userId);
+        this.authService.isAuth.next(true);
         this.router.navigateByUrl('dashboard/editor');
       },
       _err => {

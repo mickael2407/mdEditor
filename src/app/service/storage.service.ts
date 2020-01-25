@@ -14,4 +14,8 @@ export class StorageService {
   getUserId(): string {
     return window.localStorage.getItem('userId');
   }
+
+  clearStorage(): void {
+    window.localStorage.clear();
+  }
 }
