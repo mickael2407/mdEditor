@@ -7,5 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
 }
 .loginPage{
-    background: linear-gradient(blue, white);
+    //background: linear-gradient(blue, white);
+    background: url('./assets/loginBackground.jpg') no-repeat center;
 }

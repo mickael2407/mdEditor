@@ -44,7 +44,7 @@ export class EditorComponent implements OnInit {
       modified: null,
       created: new Date(),
       userId: this.storageService.getUserId(),
-      idCat : ['1']
+      idCat : []
     };
     this.currentCategory = [];
     this.loadingFile = false;
@@ -75,7 +75,7 @@ export class EditorComponent implements OnInit {
       _res => {
         console.log(_res);
         this.currentDoc._id = _res.docId;
-        if (this.docService.docs.filter(_doc => _doc._id == this.currentDoc._id).length < 0) {
+        if (this.docService.docs.filter(_doc => _doc._id == this.currentDoc._id).length < 1) {
           this.docService.docs.push(this.currentDoc);
         }
       }, () => {}, () => {
