@@ -1,8 +1,6 @@
-<section class="flex">
-  <mat-card class="card_editor">
-    <mat-card-header>
-      <!--       <mat-card-title>Markdown</mat-card-title>
- -->
+<section class="flex" id="editor">
+  <div class="card_editor">
+    <div class="header">
       <mat-form-field id="fileNameInput">
         <input matInput [(ngModel)]="currentDoc.title" placeholder="Name" value="">
       </mat-form-field>
@@ -10,11 +8,11 @@
         <mat-icon>save</mat-icon>
         Save
       </button>
-    </mat-card-header>
-    <mat-progress-bar aria-label="loading" *ngIf="loadingFile" mode="indeterminate"></mat-progress-bar>
-    <mat-card-content>
+      <mat-progress-bar aria-label="loading" *ngIf="loadingFile" mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div class="content">
       <textarea [(ngModel)]="currentDoc.content"></textarea>
-    </mat-card-content>
+    </div>
     <mat-form-field class="category-list">
       <mat-chip-list #chipList aria-label="Fruit selection">
         <mat-chip
@@ -41,13 +39,14 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-  </mat-card>
-  <mat-card class="card_editor">
-    <mat-card-header>
-      <mat-card-title>Preview</mat-card-title>
-    </mat-card-header>
-    <mat-card-content id="markdownPreview">
+    
+  </div>
+  <div class="card_editor" id="preview">
+    <div class="header">
+      <h2>Preview</h2>
+    </div>
+    <div class="content">
       <ngx-md id="md-preview" [data]="currentDoc.content"></ngx-md>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </div>
 </section>

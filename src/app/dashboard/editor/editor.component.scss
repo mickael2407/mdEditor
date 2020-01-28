@@ -1,28 +1,36 @@
 .card_editor{
     width: 50%;
-    height: 75vh;
-}
-mat-card-header{
-    min-height: 65px;
+    height: 100%;
 }
 mat-progress-bar{
     margin: 4px;
 }
+#editor{
+    height: 75vh;
+    padding: 3px;
+}
 textarea{
     width: 99%;
-    height: 99%;
+    height: 100%;
     overflow: auto;
+    border-radius: 10px;
+
 }
-mat-card-content{
-    height: 94%;
-    overflow-y: auto;
+.content{
+    height: 100%;
+    border-radius: 10px;
 }
-section{
-    height: 92vh;
+#preview .content{
+    padding: 5px;
+    //padding-bottom: 1px;
+    overflow: auto;
+    height: 99%;
+    border: 2px dashed black;
 }
 #fileNameInput{
     width: 300px;
 }
 .category-list{
     width: 100%;
+    margin-top: 6px;
 }
