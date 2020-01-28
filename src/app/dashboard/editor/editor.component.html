@@ -1,5 +1,5 @@
 <section class="flex" id="editor">
-  <div class="card_editor">
+  <div *ngIf="editorDisplaying" class="card_editor">
     <div class="header">
       <mat-form-field id="fileNameInput">
         <input matInput [(ngModel)]="currentDoc.title" placeholder="Name" value="">
@@ -41,9 +41,12 @@
     </mat-form-field>
     
   </div>
-  <div class="card_editor" id="preview">
+  <div [class]="editorDisplaying ? 'card_editor': 'preview_only'" id="preview">
     <div class="header">
       <h2>Preview</h2>
+      <div class="switch">
+        <mat-slide-toggle (change)="editorDisplaying = !editorDisplaying">Hide editor</mat-slide-toggle>
+      </div>
     </div>
     <div class="content">
       <ngx-md id="md-preview" [data]="currentDoc.content"></ngx-md>

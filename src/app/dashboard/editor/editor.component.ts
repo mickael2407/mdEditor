@@ -18,6 +18,7 @@ import { MatChipInputEvent, MatAutocomplete, MatAutocompleteSelectedEvent } from
 })
 export class EditorComponent implements OnInit {
 
+  public editorDisplaying: boolean;
   public visible = true;
   public selectable = true;
   public removable = true;
@@ -48,9 +49,11 @@ export class EditorComponent implements OnInit {
     };
     this.currentCategory = [];
     this.loadingFile = false;
+    this.editorDisplaying = true;
     this.routerSnapshot.params.subscribe(
       _params => {
         if (_params['docId'] !== undefined) {
+          this.editorDisplaying = false;
           this.currentDoc = this.docService.docs.filter(_doc => _doc._id == _params['docId'])[0];
           this.currentCategory = this.currentDoc.idCat.map(_cat => this.categoryService.category.filter(_c => _c.idCat == _cat)[0]);
           console.log(this.docService.docs);
