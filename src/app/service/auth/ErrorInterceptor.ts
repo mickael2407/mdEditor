@@ -12,8 +12,10 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
-            if (err.status === 401) {
+            console.log(err);
+            if (err.status === 401 || err.status === 0) { // A vérifé pourquoi 0 au lieux de 201
                 // auto logout if 401 response returned from api
+                console.log('ok');
                 this.authService.isAuth.next(false);
                 this.storageService.clearStorage();
                 location.reload(true);
