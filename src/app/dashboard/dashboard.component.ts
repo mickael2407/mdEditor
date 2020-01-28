@@ -5,7 +5,7 @@ import { StorageService } from '../service/storage.service';
 import { Doc } from '../interface/doc';
 import { EditorComponent } from './editor/editor.component';
 import { Router } from '@angular/router';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../service/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',

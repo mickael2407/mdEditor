@@ -18,4 +18,12 @@ export class StorageService {
   clearStorage(): void {
     window.localStorage.clear();
   }
+
+  setToken(token: string): void {
+    window.localStorage.setItem('token', token);
+  }
+
+  getToken(): string {
+    return window.localStorage.getItem('token');
+  }
 }

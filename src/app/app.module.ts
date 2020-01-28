@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './service/auth.service';
+import { AuthService } from './service/auth/auth.service';
 import { RouterModule, ActivatedRouteSnapshot } from '@angular/router';
-import { AuthGuard } from './service/auth.guard';
+import { AuthGuard } from './service/auth/auth.guard';
+import { AuthInterceptor } from './service/auth/AuthInterceptor';
+import { ErrorInterceptor } from './service/auth/ErrorInterceptor';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AuthGuard } from './service/auth.guard';
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

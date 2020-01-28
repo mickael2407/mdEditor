@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API } from '../constants/api';
+import { API } from '../../constants/api';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { StorageService } from './storage.service';
+import { StorageService } from '../storage.service';
 
 declare interface AuthResponse {
   code: number;
   msg: string;
+  token: string;
   userId: string;
 }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../service/auth/auth.service';
 import { StorageService } from '../service/storage.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       _res => {
         console.log(_res);
         this.storageService.setUserId(_res.userId);
+        this.storageService.setToken(_res.token);
         this.authService.isAuth.next(true);
         this.router.navigateByUrl('dashboard/editor');
       },
@@ -60,6 +61,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       _res => {
         console.log(_res);
         this.storageService.setUserId(_res.userId);
+        this.storageService.setToken(_res.token);
         this.authService.isAuth.next(true);
         this.router.navigateByUrl('dashboard/editor');
       },
