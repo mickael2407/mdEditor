@@ -1,5 +1,5 @@
 .card_editor{
-    width: 50%;
+    width: 49%;
     height: 100%;
 }
 mat-progress-bar{
@@ -8,6 +8,7 @@ mat-progress-bar{
 #editor{
     height: 75vh;
     padding: 3px;
+    justify-content: space-between;
 }
 textarea{
     width: 99%;

@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     ReactiveFormsModule,
     NgxMdModule.forRoot(),
-    DashboardRoutingModule
+    DashboardRoutingModule,
   ],
   providers: [
     DocsService,
