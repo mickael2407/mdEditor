@@ -45,7 +45,7 @@
     <div class="header">
       <h2>Preview</h2>
       <div class="switch">
-        <mat-slide-toggle (change)="editorDisplaying = !editorDisplaying">Hide editor</mat-slide-toggle>
+        <mat-slide-toggle [checked]="!editorDisplaying" (change)="editorDisplaying = !editorDisplaying">Hide editor</mat-slide-toggle>
       </div>
     </div>
     <div class="content">
