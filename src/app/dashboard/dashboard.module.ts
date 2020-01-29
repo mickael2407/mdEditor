@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocsService } from '../service/docs.service';
 import { CatService } from '../service/cat.service';
 import { RouterModule } from '@angular/router';
+import 'clipboard';
 
 import 'prismjs';
 import 'prismjs/plugins/toolbar/prism-toolbar';
