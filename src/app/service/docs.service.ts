@@ -34,4 +34,8 @@ export class DocsService {
   deleteCategoryDoc(docCat: {docId: string, catId: string}): Observable<any> {
     return this.httpClient.delete<any>(API.URL + `${API.DOC.DELETE_CAT}/${docCat.docId}/${docCat.catId}`);
   }
+
+  deleteDoc(docId: string): Observable<any> {
+    return this.httpClient.delete<any>(API.URL + `${API.DOC.DELETE}/${docId}`);
+  }
 }

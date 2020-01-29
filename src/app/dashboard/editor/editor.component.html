@@ -5,8 +5,12 @@
         <input matInput [(ngModel)]="currentDoc.title" placeholder="Name" value="">
       </mat-form-field>
       <button mat-button (click)="saveFile()" color="basic">
-        <mat-icon>save</mat-icon>
+        <mat-icon >save</mat-icon >
         Save
+      </button>
+      <button mat-button (click)="deleteDoc()" color="basic">
+        <mat-icon color="warn">delete</mat-icon>
+        Delete
       </button>
       <mat-progress-bar aria-label="loading" *ngIf="loadingFile" mode="indeterminate"></mat-progress-bar>
     </div>

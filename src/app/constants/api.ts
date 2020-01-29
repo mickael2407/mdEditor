@@ -6,6 +6,7 @@ export const API = {
         "SIGNUp": 'auth/signup'
     },
     "DOC": {
+        'DELETE': 'docs',
         "USER": 'docs/user/',
         "NEW": 'docs/new',
         'CONTENT': 'docs/content/',

@@ -87,6 +87,18 @@ export class EditorComponent implements OnInit {
     );
   }
 
+  deleteDoc(): void {
+    this.docService.deleteDoc(this.currentDoc._id).subscribe(
+      _res => {
+        console.log(_res);
+      },() => {},
+      () => {
+        const index = this.docService.docs.findIndex(_doc => _doc._id === this.currentDoc._id);
+        this.docService.docs.splice(index, 1);
+      }
+    );
+  }
+
   loadContent(docId: string) {
     this.loadingFile = !this.loadingFile;
     this.docService.getContentByDocId(docId).subscribe(
