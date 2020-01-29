@@ -48,7 +48,7 @@
         <mat-slide-toggle [checked]="!editorDisplaying" (change)="editorDisplaying = !editorDisplaying">Hide editor</mat-slide-toggle>
       </div>
     </div>
-    <div class="content">
+    <div [class]="(editorDisplaying ? 'dashed': '') + ' content'">
       <ngx-md id="md-preview" [data]="currentDoc.content"></ngx-md>
     </div>
   </div>
