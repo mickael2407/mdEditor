@@ -71,7 +71,7 @@ export class EditorComponent implements OnInit {
     console.log(this.categoryService.category);
   }
 
-  saveFile(): void {
+  saveFile(nextFunction? : Function): void {
     this.loadingFile = !this.loadingFile;
     this.currentDoc.modified = new Date();
     this.docService.postDocs(this.currentDoc).subscribe(
@@ -83,6 +83,9 @@ export class EditorComponent implements OnInit {
         }
       }, () => {}, () => {
         this.loadingFile = !this.loadingFile;
+        if (nextFunction) {
+          nextFunction();
+        }
       }
     );
   }
@@ -155,6 +158,16 @@ export class EditorComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
+    if (this.currentDoc._id === null) {
+      this.saveFile(() => {
+        this.addCategory(event)
+      });
+    } else {
+      this.addCategory(event);
+    }
+  }
+
+  addCategory(event: MatAutocompleteSelectedEvent) {
     const cat = this.categoryService.category.filter(_cat => _cat.name == event.option.viewValue)[0];
     console.log(event.option.viewValue)
     this.currentCategory.push(cat);
