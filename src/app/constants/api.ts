@@ -8,6 +8,7 @@ export const API = {
     "DOC": {
         'DELETE': 'docs',
         "USER": 'docs/user/',
+        "ALL": 'docs/all',
         "NEW": 'docs/new',
         'CONTENT': 'docs/content/',
         'NEW_CAT': 'docs/category/new',

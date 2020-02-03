@@ -32,6 +32,12 @@ export class DashboardComponent implements OnInit {
         this.docService.docs = _res;
       }
     );
+    this.docService.getAllDocPublic().subscribe(
+      _res => {
+        this.docService.allDocs = _res;
+        console.log(this.docService.allDocs);
+      }
+    );
   }
 
   ifUserHasFile(): boolean {

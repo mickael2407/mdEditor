@@ -11,6 +11,7 @@ import { Category } from '../interface/category';
 export class DocsService {
 
   public docs: Doc[];
+  public allDocs: Doc[];
   constructor(private httpClient: HttpClient) {
     this.docs = [];
   }
@@ -21,6 +22,10 @@ export class DocsService {
 
   postDocs(doc: Doc): Observable<any> {
     return this.httpClient.post<any>(API.URL + API.DOC.NEW, doc);
+  }
+
+  getAllDocPublic(): Observable<Doc[]> {
+    return this.httpClient.get<Doc[]>(API.URL + API.DOC.ALL);
   }
 
   getContentByDocId(docId: string): Observable<{content: string}> {
