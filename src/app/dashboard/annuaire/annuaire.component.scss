@@ -1,9 +1,9 @@
 section{
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
 }
 .doc-card{
-    width: calc(100% / 4);
+    width: calc(100% / 5);
     margin: 4px;
 }
 mat-card-header{
