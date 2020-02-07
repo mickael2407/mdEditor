@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 import { CatService } from 'src/app/service/cat.service';
 import {map, startWith} from 'rxjs/operators';
 import { Category } from 'src/app/interface/category';
-import { MatChipInputEvent, MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material';
+import { MatChipInputEvent, MatAutocomplete, MatAutocompleteSelectedEvent, MatDialog } from '@angular/material';
+import { PictureModal } from '../modal/picture/picture_modal';
 
 @Component({
   selector: 'app-editor',
@@ -36,6 +37,7 @@ export class EditorComponent implements OnInit {
   constructor(private storageService: StorageService, 
     private routerSnapshot: ActivatedRoute,
     public categoryService: CatService,
+    public dialog: MatDialog,
     private docService: DocsService) {
     this.currentDoc = {
       _id: null,
@@ -69,6 +71,16 @@ export class EditorComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.categoryService.category);
+  }
+
+
+  openPictureModal(): void {
+    const dialogRef = this.dialog.open(PictureModal, {
+      width: '800px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   saveFile(nextFunction? : Function): void {

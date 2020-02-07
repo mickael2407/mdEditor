@@ -24,10 +24,17 @@ import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
 import { AnnuaireComponent } from './annuaire/annuaire.component';
 import { ViewComponent } from './view/view.component';
+import { PictureModal } from './modal/picture/picture_modal';
 
 declare var Prism: any;
 @NgModule({
-  declarations: [DashboardComponent, EditorComponent, AnnuaireComponent, ViewComponent],
+  declarations: [
+    DashboardComponent, 
+    EditorComponent, 
+    AnnuaireComponent, 
+    ViewComponent,
+    PictureModal
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -36,6 +43,9 @@ declare var Prism: any;
     ReactiveFormsModule,
     NgxMdModule.forRoot(),
     DashboardRoutingModule,
+  ],
+  entryComponents: [
+    PictureModal
   ],
   providers: [
     DocsService,

@@ -12,6 +12,10 @@
         <mat-icon color="warn">delete</mat-icon>
         Delete
       </button>
+      <button mat-button (click)="openPictureModal()" color="basic">
+        <mat-icon color="primary">photo_library</mat-icon>
+        Galery
+      </button>
       <mat-progress-bar aria-label="loading" *ngIf="loadingFile" mode="indeterminate"></mat-progress-bar>
     </div>
     <div class="content">
