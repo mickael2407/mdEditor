@@ -3,9 +3,13 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     <span>E-Doc</span>
-    <button mat-button (click)="navigate('./editor')">
+    <button mat-button (click)="navigate('editor')">
         <mat-icon>edit</mat-icon>
         Editor
+    </button>
+    <button mat-button (click)="navigate('public')">
+        <mat-icon>list</mat-icon>
+        Annuaire
     </button>
     <button (click)="logout()" id="logoutBtn" mat-button>
         <mat-icon>logout</mat-icon>

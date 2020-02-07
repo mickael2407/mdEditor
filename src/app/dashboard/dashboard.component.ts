@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
   }
 
   navigate(path: string): void {
-    this.router.navigateByUrl('dashboard/editor');
+    this.router.navigateByUrl(`dashboard/${path}`);
   }
 
   selectFile(docId: string): void {

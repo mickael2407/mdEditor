@@ -1,0 +1,18 @@
+<section>
+    <ul id="doc-info" class="flex">
+        <li>User: {{ currentDoc.username }}</li>
+        <li>Created on: {{ currentDoc.created | date }}</li>
+        <li>Modfied on: {{ currentDoc.modified | date }}</li>
+    </ul>
+    <div class="flex" id="nav-action">
+        <button mat-fab color="primary" (click)="previousDoc()" matTooltip="Next doc">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-fab color="primary" (click)="nextDoc()" matTooltip="Previous doc">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+
+    </div>
+
+    <ngx-md id="md-preview" [data]="currentDoc.content"></ngx-md>
+</section>

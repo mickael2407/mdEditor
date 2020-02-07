@@ -1,0 +1,18 @@
+section{
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.doc-card{
+    width: calc(100% / 4);
+    margin: 4px;
+}
+mat-card-header{
+    cursor: pointer;
+}
+mat-card-content{
+    font-style: italic;
+}
+.header-image {
+    background: url('../../../assets/docIcon.png') no-repeat;
+    background-size: cover;
+}

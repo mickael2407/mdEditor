@@ -22,10 +22,12 @@ import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
+import { AnnuaireComponent } from './annuaire/annuaire.component';
+import { ViewComponent } from './view/view.component';
 
 declare var Prism: any;
 @NgModule({
-  declarations: [DashboardComponent, EditorComponent],
+  declarations: [DashboardComponent, EditorComponent, AnnuaireComponent, ViewComponent],
   imports: [
     CommonModule,
     MaterialModule,

@@ -1,0 +1,27 @@
+<section class="flex">
+    <mat-card *ngFor="let doc of docService.allDocs" class="doc-card">
+        <mat-card-header matRipple (click)="preview(doc._id)">
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{ doc.title }}</mat-card-title>
+            <mat-card-subtitle>By {{ doc.username }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="./assets/code.jpg" alt="code">
+        <mat-card-content>
+            <p> <span *ngFor="let cat of doc.idCat; let i = index;">{{ catService.getCategoryNameById(cat).name }}<span
+                        *ngIf="doc.idCat.length > 1 && doc.idCat.length - 1 !== i">, </span>
+                </span>
+            </p>
+            <p>
+                {{ doc.description }}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon>star_border</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon-button">
+                <mat-icon>thumb_up</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</section>
