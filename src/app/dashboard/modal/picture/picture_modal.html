@@ -1,7 +1,8 @@
 <h1 mat-dialog-title>Galery</h1>
 <div mat-dialog-content>
   <div id="header">
-    <button mat-button color="basic">
+    <input type="file" #imgInput (change)="onChange()" ngf [(files)]="files" style="display: none;" multiple/>
+    <button mat-button color="basic" (click)="imgInput.click()">
       <mat-icon color="primary">add_photo_alternate</mat-icon>
       Add
     </button>
@@ -13,8 +14,10 @@
       <mat-icon color="primary">photo_library</mat-icon>
       Galery
     </button>
-  
   </div>
+  <section id="galery" style="width: 100%;">
+    <img width="100px" *ngFor="let img of files;" [ngfSrc]="img" />
+  </section>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

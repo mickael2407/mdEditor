@@ -7,11 +7,16 @@ import { MatDialogRef } from '@angular/material';
 })
 export class PictureModal {
 
+    public files: File[];
     constructor(
         public dialogRef: MatDialogRef<PictureModal>) { }
 
     onNoClick(): void {
         this.dialogRef.close();
+    }
+
+    onChange() {
+        console.log(this.files);
     }
 
 }

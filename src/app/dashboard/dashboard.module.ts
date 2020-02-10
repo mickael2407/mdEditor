@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocsService } from '../service/docs.service';
 import { CatService } from '../service/cat.service';
 import { RouterModule } from '@angular/router';
+import { ngfModule } from "angular-file"
+
 import 'clipboard';
 
 import 'prismjs';
@@ -31,7 +33,7 @@ declare var Prism: any;
   declarations: [
     DashboardComponent, 
     EditorComponent, 
-    AnnuaireComponent, 
+    AnnuaireComponent,
     ViewComponent,
     PictureModal
   ],
@@ -43,6 +45,7 @@ declare var Prism: any;
     ReactiveFormsModule,
     NgxMdModule.forRoot(),
     DashboardRoutingModule,
+    ngfModule,
   ],
   entryComponents: [
     PictureModal
