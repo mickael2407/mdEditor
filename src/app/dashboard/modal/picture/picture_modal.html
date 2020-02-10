@@ -1,8 +1,8 @@
 <h1 mat-dialog-title>Galery</h1>
 <div mat-dialog-content>
   <div id="header">
-    <input type="file" #imgInput (change)="onChange()" ngf [(files)]="files" style="display: none;" multiple/>
-    <button mat-button color="basic" (click)="imgInput.click()">
+    <input type="file" #imgInput ngf (filesChange)="onFileChange($event)"  [(files)]="files" style="display: none;" multiple/>
+    <button mat-button color="basic" (click)="imgInput.click();">
       <mat-icon color="primary">add_photo_alternate</mat-icon>
       Add
     </button>

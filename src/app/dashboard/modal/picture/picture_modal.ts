@@ -15,8 +15,15 @@ export class PictureModal {
         this.dialogRef.close();
     }
 
-    onChange() {
-        console.log(this.files);
+    onFileChange(event: File[]) {
+        console.log(event);
+        event.forEach(_file => {
+            let reader = new FileReader()
+            reader.readAsDataURL(_file);
+            reader.onload = () => {
+                console.log(reader.result);
+            }
+        });
     }
 
 }
